@@ -1,4 +1,5 @@
 interface HeroSectionProps {
+    titlePerCity?: string | null; 
     title: string;
     subtitle: string;
     buttonLabel: string;
@@ -7,13 +8,14 @@ interface HeroSectionProps {
     imgSrc: string;
 }
 
-export function HeroSection({ title, subtitle, buttonLabel, isExternalLink = false, buttonLink, imgSrc }: HeroSectionProps) {
+export function HeroSection({ titlePerCity = null, title, subtitle, buttonLabel, isExternalLink = false, buttonLink, imgSrc }: HeroSectionProps) {
     return (
         <div className="relative w-full h-full">
             <div className="absolute inset-0 w-full bg-gradient-to-b from-transparent to-neutral-900/75">
                 <div className="w-full max-w-[1450px] mx-auto h-full px-6 pb-20 flex items-end justify-start ">
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
+                            {titlePerCity && <h2 className="block text-sun-500 text-base leading-4 font-bold tracking-widest uppercase">{titlePerCity}</h2>}
                             <h1 className="text-4xl font-bold text-neutral-200 tracking-tight leading-10 md:text-5xl">
                                 {title}
                             </h1>
