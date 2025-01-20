@@ -12,9 +12,13 @@ export function Footer() {
           </div>
         
 
-          <div className="flex flex-col items-start justify-center gap-1 sm:items-center">
-            <h2 className="text-neutral-200 font-semibold text-sm md:text-base">GESOLAR TECNOLOGIA E SOLUÇÕES EM ENERGIA SOLAR</h2>
-            <span className="text-neutral-400 font-medium text-xs md:text-sm">Av. Paulista, 1842 - conjunto 155 - CEP 01310-200 - Bela Vista - Sao Paulo/Sp</span>
+          <div className="flex flex-col items-start justify-center gap-3 sm:items-center">
+            <h2 className="text-center max-w-2xl text-neutral-200 font-semibold text-sm md:text-base">Gesolar Solucoes em Energia Gesolar Comercio, Importacao e Distribuicao de Equipamentos Partes e Pecas Para Energia Solar LTDA</h2>
+            
+            <div className="flex flex-col items-start justify-center gap-1 sm:items-center">
+              <span className="text-neutral-300 font-medium text-xs md:text-sm">CNPJ: 13.151.417/0001-05</span>
+              <span className="text-neutral-400 font-medium text-xs md:text-sm">Av. Paulista, 1842 - conjunto 155 - CEP 01310-200 - Bela Vista - Sao Paulo/Sp</span>
+            </div>
           </div>
         </div>
 
