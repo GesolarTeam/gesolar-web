@@ -5,8 +5,10 @@ import { FaRecycle } from "react-icons/fa";
 import { IoCash } from "react-icons/io5";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { useState } from "react";
-import React from "react";
-
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -50,16 +52,72 @@ export default function LocaçãoDeEnergia() {
   const toggleDropdown = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    clearErrors,
+    reset,
+    formState: { errors },
+  } = useForm();
+  
+  const formValidation: any = {
+    nameInputFieldOptions: {
+      required: "Este campo é obrigatorio. "
+    },
+    emailInputFieldOptions: {
+      required: "Este campo é obrigatorio. ",
+      pattern: {
+        value: /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/,
+        message: 'insira um formato de email valido' 
+      }
+    },
+    phoneNumberInputFieldOptions: {
+      required: "Este campo é obrigatorio. ",
+    },
+    zipCodeInputFieldOptions: {
+      required: "Este campo é obrigatorio. ",
+    },
+  }
+  async function onFormSubmit(data: any) {
+    axios.post('https://hook.us1.make.com/si8cck7nkx36xi5lku4im9yscxiazgep', data)
+     .then(res => {
+      reset()
+      successToast()
+     })
+     .catch(err => errorToast())
+  }
+
+  const successToast = () => toast.success('Dados enviados para nossos especialistas', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+});
+
+  const errorToast = () => toast.error('Algo deu errado, tente novamente mais tarde!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+  });
+
+  
   return (
     <>
-      
-
     <div className="h-[90vh] relative w-full opacity-70">
-                <img
-                    className="w-full h-full object-cover"
-                    src="/beautiful-alternative-energy-plant-with-solar-panels.jpg"
-                    alt="" 
-                />
+      <img
+        className="w-full h-full object-cover"
+        src="/beautiful-alternative-energy-plant-with-solar-panels.jpg"
+        alt="" 
+      />
     </div>
 
     <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center px-4">
@@ -81,18 +139,44 @@ export default function LocaçãoDeEnergia() {
   
 
     {/* Lado direito: Formulário */}
-    <form 
-      onSubmit={(event) => {
-        event.preventDefault();
-        alert("Formulário enviado com sucesso!");
-      }}
+    <form onSubmit={handleSubmit(onFormSubmit)}
       className="flex flex-col space-y-4 w-full max-w-md"
     >
-      <input type="text" placeholder="Nome" className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500" required />
-      <input type="email" placeholder="E-mail" className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500" required />
-      <input type="tel" placeholder="Telefone" className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500" required />
-      <input type="text" placeholder="CEP" className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500" required />
-      <input type="number" placeholder="Quanto paga na conta de energia?" className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500" required />
+      <input 
+        type="text" 
+        placeholder="Nome" 
+        className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500"
+        {...register('name', formValidation.nameInputFieldOptions)}
+      />
+
+      <input 
+        type="text" 
+        placeholder="Email" 
+        className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500"
+        {...register('email', formValidation.emailInputFieldOptions)}
+      />
+
+      <input
+        type="tel" 
+        placeholder="Telefone" 
+        className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500"
+        {...register('phoneNumber', formValidation.phoneNumberInputFieldOptions)}
+      />
+
+      <input
+        type="text" 
+        placeholder="CEP" 
+        className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500"
+        {...register('zipCode', formValidation.zipCodeInputFieldOptions)}
+      />
+      
+      <input 
+        type="number" 
+        placeholder="Quanto paga na conta de energia?" 
+        className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500" 
+        {...register('electricityBillValue', formValidation.zipCodeInputFieldOptions)}
+      />
+
       <button type="submit" className="bg-sun-500 text-white p-3 rounded-md hover:bg-amber-500 transition">
         Enviar
       </button>
@@ -338,7 +422,7 @@ export default function LocaçãoDeEnergia() {
       </div>
     </div>
 
-    
+    <ToastContainer />
     </>
   );
 }
