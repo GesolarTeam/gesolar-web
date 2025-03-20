@@ -129,7 +129,7 @@ export function HomePageFormWhite() {
                   })}
                 </select>
                 
-                {!!errors.select && <span className="ml-2 block text-xs font-medium text-red-400">{errors.select.message}</span>}
+                {!!errors.select && <span className="ml-2 block text-xs font-medium text-red-400">{errors.select.message as string}</span>}
               </div>
             </div>
 
@@ -175,7 +175,7 @@ export function HomePageFormWhite() {
 
                   </label>
 
-                  {!!errors.phoneNumber && <span className="block ml-1 text-xs font-medium text-red-400">{errors.phoneNumber.message}</span>}
+                  {!!errors.phoneNumber && <span className="block ml-1 text-xs font-medium text-red-400">{errors.phoneNumber.message as string}</span>}
               </div>
             </div>
 
@@ -204,7 +204,7 @@ export function HomePageFormWhite() {
 
                   </label>
 
-                  {!!errors.zipCode && <span className="block ml-1 text-xs font-medium text-red-400">{errors.zipCode.message}</span>}
+                  {!!errors.zipCode && <span className="block ml-1 text-xs font-medium text-red-400">{errors.zipCode.message as string}</span>}
               </div>
             </div>
 

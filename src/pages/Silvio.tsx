@@ -272,7 +272,7 @@ export default function Home() {
                         })}
                       />
 
-                      {!!errors.popUpPhoneNumber && <span className="ml-2 block text-xs font-medium text-red-400">{errors.popUpPhoneNumber.message}</span>}
+                      {!!errors.popUpPhoneNumber && <span className="ml-2 block text-xs font-medium text-red-400">{errors.popUpPhoneNumber.message as string}</span>}
                     </div>
 
                     <button

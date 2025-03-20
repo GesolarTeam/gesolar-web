@@ -3,7 +3,7 @@ import { forwardRef, ForwardRefRenderFunction, Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { BsCheck } from 'react-icons/bs'
 import { MdOutlineKeyboardArrowDown, MdAttachMoney } from 'react-icons/md'
-import { FieldError } from 'react-hook-form';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 import classNames from 'classnames';
 import { useCalculator } from '../hooks/useCalculator';
@@ -15,7 +15,7 @@ type selectValueData = any
 interface SelectProps {
     selectValue: selectValueData;
     onChangeSelectValue: (value: selectValueData) => void;
-    error?: FieldError;
+    error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
 }
 
 const SelectBase: ForwardRefRenderFunction<HTMLInputElement, SelectProps> = ({ selectValue, onChangeSelectValue, error = null, ...rest }, ref) => {
@@ -112,7 +112,7 @@ const SelectBase: ForwardRefRenderFunction<HTMLInputElement, SelectProps> = ({ s
                 )}
             </Listbox>
 
-            {error && <span className="block text-xs font-medium text-red-400">{error.message}</span>}
+            {error && <span className="block text-xs font-medium text-red-400">{error.message as string}</span>}
         </div>
     );
 }

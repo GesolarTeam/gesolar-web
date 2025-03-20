@@ -93,7 +93,7 @@ export function MaintenancePageForm() {
                             />
                         </div>
 
-                        {!!errors.email && <span className="ml-2 block text-xs font-medium text-red-400">{errors.email.message}</span>}
+                        {!!errors.email && <span className="ml-2 block text-xs font-medium text-red-400">{errors.email.message as string}</span>}
                     </div>
 
                     <div className="w-full flex flex-col gap-3 col-span-full md:col-span-2 lg:col-span-3">
@@ -110,7 +110,7 @@ export function MaintenancePageForm() {
                             />
                         </div>
 
-                        {!!errors.phoneNumber && <span className="ml-2 block text-xs font-medium text-red-400">{errors.phoneNumber.message}</span>}
+                        {!!errors.phoneNumber && <span className="ml-2 block text-xs font-medium text-red-400">{errors.phoneNumber.message as string}</span>}
                     </div>
 
                     <div className="w-full flex flex-col gap-3 col-span-full md:col-span-3 lg:col-span-2">
@@ -127,7 +127,7 @@ export function MaintenancePageForm() {
                             />
                         </div>
 
-                        {!!errors.zipCode && <span className="ml-2 block text-xs font-medium text-red-400">{errors.zipCode.message}</span>}
+                        {!!errors.zipCode && <span className="ml-2 block text-xs font-medium text-red-400">{errors.zipCode.message as string}</span>}
                     </div>
 
                     <div className="w-full flex flex-col gap-3 col-span-full md:col-span-3 lg:col-span-3">
@@ -141,7 +141,7 @@ export function MaintenancePageForm() {
                             />
                         </div>
 
-                        {!!errors.numberOfSolarPanels && <span className="ml-2 block text-xs font-medium text-red-400">{errors.numberOfSolarPanels.message}</span>}
+                        {!!errors.numberOfSolarPanels && <span className="ml-2 block text-xs font-medium text-red-400">{errors.numberOfSolarPanels.message as string}</span>}
                     </div>
                 </div>
 

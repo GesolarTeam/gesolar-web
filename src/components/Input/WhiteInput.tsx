@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import { forwardRef, ForwardRefRenderFunction, HTMLAttributes, ReactNode } from "react";
-import { FieldError } from "react-hook-form";
+import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 
 interface WhiteInputProps extends HTMLAttributes<HTMLInputElement> {
     name: string;
     label: string;
-    error?: FieldError;
+    error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
     icon: ReactNode;
     placeholder: string;
 }
@@ -36,7 +36,7 @@ const WhiteInputBase: ForwardRefRenderFunction<HTMLInputElement, WhiteInputProps
 
                 </label>
 
-                {!!error && <span className="ml-2 block text-xs font-medium text-red-400">{error.message}</span>}
+                {!!error && <span className="ml-2 block text-xs font-medium text-red-400">{error.message as string}</span>}
             </div>
         </div>
     )

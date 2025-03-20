@@ -187,7 +187,7 @@ export function SallerPageForm() {
                         {sallerIsEmpty && (
                             <div>
                                 <span className="block text-sm font-medium text-red-400">
-                                    {errors.saller_radio.message}
+                                    {errors.saller_radio && errors.saller_radio.message as string}
                                 </span>
                             </div>
                         )}
@@ -250,7 +250,7 @@ export function SallerPageForm() {
                                                 {...register("phoneNumber", formValidation.phoneNumberInputFieldOptions)}
                                             />
 
-                                            {!!errors.phoneNumber && <span className="block text-xs font-medium text-red-400">{errors.phoneNumber.message}</span>}
+                                            {!!errors.phoneNumber && <span className="block text-xs font-medium text-red-400">{errors.phoneNumber.message as string}</span>}
                                         </div>
                                     </div>
 

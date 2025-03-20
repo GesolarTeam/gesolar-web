@@ -1,6 +1,6 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
 
-import { FieldError } from "react-hook-form";
+import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 import InputMask from "react-input-mask";
 
 import classNames from "classnames";
@@ -8,7 +8,7 @@ import classNames from "classnames";
 interface InputMaskBaseProps {
     label: string;
     mask: string;
-    error?: FieldError;
+    error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
 }
 
 const InputMaskBase: ForwardRefRenderFunction<HTMLInputElement, InputMaskBaseProps> = ({ mask, label, error = null, ...rest }, ref) => {
@@ -33,7 +33,7 @@ const InputMaskBase: ForwardRefRenderFunction<HTMLInputElement, InputMaskBasePro
                     {...rest}
                 />
 
-                {!!error && <span className="block text-xs font-medium text-red-400">{error.message}</span>}
+                {!!error && <span className="block text-xs font-medium text-red-400">{error.message as string}</span>}
             </div>
         </div>
     )
