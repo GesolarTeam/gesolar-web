@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
+import Image from 'next/image'
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -113,11 +114,18 @@ export default function LocaçãoDeEnergia() {
   return (
     <>
     <div>
-      <img
-        className="h-[90vh] relative w-full object-cover opacity-70"
-        src="/locacao-hero-image.jpg"
-        alt="" 
+      <div className="relative w-full h-[90vh]">
+      <Image
+       
+       src="/locacao-hero-image.jpg"
+       alt="Imagem painel locação"
+       layout="fill" 
+       objectFit="cover" 
+       className="rounded-lg opacity-70"
+       priority
+        
       />
+      </div>
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center px-4 mt-16">
   <div className="flex md:flex-row flex-col items-center md:space-x-8 space-y-6 md:space-y-0 max-w-3xl w-full">
     
@@ -248,74 +256,81 @@ export default function LocaçãoDeEnergia() {
   </h1>
 
   {/* Grid para os cards */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     {/* Card 1 */}
-    <div className="bg-sun-500 p-6 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 h-64">
-      <div className="flex justify-center mb-4 text-white text-4xl">
+    <div className="bg-sun-500 p-6 md:p-4 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 md:w-56 lg:w-64 h-64 md:h-56 lg:h-64">
+      <div className="flex justify-center mb-4 md:mb-2 text-white text-4xl md:text-3xl lg:text-4xl">
         <FaPiggyBank />
       </div>
-      <h1 className="text-white font-bold text-lg mb-4">Economia</h1>
-      <p>
-        <span className="font-bold">Reduza</span> a sua despesa com energia elétrica durante todo o período do contrato.
+      <h1 className="text-white font-bold text-lg md:text-base lg:text-lg mb-4 md:mb-2">Economia</h1>
+      <p className="text-sm md:text-xs lg:text-sm">
+        <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">Reduza</span> sua despesa com energia elétrica durante o contrato.
       </p>
     </div>
 
     {/* Card 2 */}
-    <div className="bg-sun-500 p-6 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 h-64">
-      <div className="flex justify-center mb-4 text-white text-4xl">
+    <div className="bg-sun-500 p-6 md:p-4 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 md:w-56 lg:w-64 h-64 md:h-56 lg:h-64">
+      <div className="flex justify-center mb-4 md:mb-2 text-white text-4xl md:text-3xl lg:text-4xl">
         <FaFlag />
       </div>
-      <h1 className="text-white font-bold text-lg mb-4">Livre das Bandeiras Tarifárias</h1>
-      <p> Quem gera a própria energia
-        <span className="font-bold">não paga mais por isso</span> por causa das bandeiras tarifárias.
+      <h1 className="text-white font-bold text-lg md:text-base lg:text-lg mb-4 md:mb-2">Livre das Bandeiras Tarifárias</h1>
+      <p className="text-sm md:text-xs lg:text-sm">
+        Quem gera a própria energia
+        <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">não paga mais por isso</span> por causa das bandeiras tarifárias.
       </p>
     </div>
 
     {/* Card 3 */}
-    <div className="bg-sun-500 p-6 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 h-64">
-      <div className="flex justify-center mb-4 text-white text-4xl">
+    <div className="bg-sun-500 p-6 md:p-4 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 md:w-56 lg:w-64 h-64 md:h-56 lg:h-64">
+      <div className="flex justify-center mb-4 md:mb-2 text-white text-4xl md:text-3xl lg:text-4xl">
         <BsBank2 />
       </div>
-      <h1 className="text-white font-bold text-lg mb-4">Valorização do imóvel</h1>
-      <p> Imóveis com usina solar instaladas
-        <span className="font-bold">valorizam em média de 5% a 10%</span> pelo benefício da economia e da sustentabilidade.
+      <h1 className="text-white font-bold text-lg md:text-base lg:text-lg mb-4 md:mb-2">Valorização do imóvel</h1>
+      <p className="text-sm md:text-xs lg:text-sm">
+        Imóveis com usina solar instaladas
+        <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">valorizam entre 5% e 10%</span> devido à economia e sustentabilidade.
       </p>
     </div>
 
     {/* Card 4 */}
-    <div className="bg-sun-500 p-6 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 h-64">
-      <div className="flex justify-center mb-4 text-white text-4xl">
+    <div className="bg-sun-500 p-6 md:p-4 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 md:w-56 lg:w-64 h-64 md:h-56 lg:h-64">
+      <div className="flex justify-center mb-4 md:mb-2 text-white text-4xl md:text-3xl lg:text-4xl">
         <FaRecycle />
       </div>
-      <h1 className="text-white font-bold text-lg mb-4">Sustentabilidade</h1>
-      <p> O cliente passa a produzir a
-        <span className="font-bold">sua própria energia</span> de forma limpa e sustentável.
+      <h1 className="text-white font-bold text-lg md:text-base lg:text-lg mb-4 md:mb-2">Sustentabilidade</h1>
+      <p className="text-sm md:text-xs lg:text-sm">
+        O cliente passa a produzir a
+        <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">sua própria energia</span> de forma limpa e sustentável.
       </p>
     </div>
 
     {/* Card 5 */}
-    <div className="bg-sun-500 p-6 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 h-64">
-      <div className="flex justify-center mb-4 text-white text-4xl">
+    <div className="bg-sun-500 p-6 md:p-4 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 md:w-56 lg:w-64 h-64 md:h-56 lg:h-64">
+      <div className="flex justify-center mb-4 md:mb-2 text-white text-4xl md:text-3xl lg:text-4xl">
         <IoCash />
       </div>
-      <h1 className="text-white font-bold text-lg mb-4">Sem exigência de crédito.</h1>
-      <p> A locação de placas solares
-        <span className="font-bold">não compromete</span> a sua capacidade de tomar crédito.
+      <h1 className="text-white font-bold text-lg md:text-base lg:text-lg mb-4 md:mb-2">Sem exigência de crédito</h1>
+      <p className="text-sm md:text-xs lg:text-sm">
+        A locação de placas solares
+        <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">não compromete</span> sua capacidade de tomar crédito.
       </p>
     </div>
 
     {/* Card 6 */}
-    <div className="bg-sun-500 p-6 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 h-64">
-      <div className="flex justify-center mb-4 text-white text-4xl">
+    <div className="bg-sun-500 p-6 md:p-4 text-center text-white rounded-lg shadow-lg flex flex-col justify-center w-64 md:w-56 lg:w-64 h-64 md:h-56 lg:h-64">
+      <div className="flex justify-center mb-4 md:mb-2 text-white text-4xl md:text-3xl lg:text-4xl">
         <IoShieldCheckmark />
       </div>
-      <h1 className="text-white font-bold text-lg mb-4">Segurança</h1>
-      <p> A Unidade Consumidora (UC) 
-        <span className="font-bold">continua no nome do cliente</span> , assegurando que ele detenha toda a geração de energia.
+      <h1 className="text-white font-bold text-lg md:text-base lg:text-lg mb-4 md:mb-2">Segurança</h1>
+      <p className="text-sm md:text-xs lg:text-sm">
+        A Unidade Consumidora (UC) 
+        <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">continua no nome do cliente</span> garantindo toda a geração de energia.
       </p>
     </div>
   </div>
 </div>
+
+
 
 
 {/* Section 4*/}
@@ -340,7 +355,7 @@ export default function LocaçãoDeEnergia() {
                   <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"></path>
                   </svg>
-              </span>Nós construímos a usina de formapersonalizada de acordo com a necessidade do cliente.
+              </span>Nós construímos a usina de  forma personalizada de acordo com a necessidade do cliente.
           </li>
       </div>
 
