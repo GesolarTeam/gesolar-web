@@ -171,9 +171,9 @@ export default function LocaçãoDeEnergia() {
 
       <input
         type="text" 
-        placeholder="CEP" 
+        placeholder="Cidade" 
         className="border p-3 rounded-md focus:ring-2 focus:ring-sun-500"
-        {...register('zipCode', formValidation.zipCodeInputFieldOptions)}
+        {...register('cityPlace', formValidation.cityPlaceInputFieldOptions)}
       />
       
       <input 
@@ -264,7 +264,7 @@ export default function LocaçãoDeEnergia() {
       </div>
       <h1 className="text-white font-bold text-lg md:text-base lg:text-lg mb-4 md:mb-2">Economia</h1>
       <p className="text-sm md:text-xs lg:text-sm">
-        <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">Reduza</span> sua despesa com energia elétrica durante o contrato.
+        <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">Redução</span>  de até <span className="font-bold block mt-1 md:mt-0.5 lg:mt-1">30%</span> na sua despesa com energia elétrica durante o contrato.
       </p>
     </div>
 
